@@ -4,7 +4,7 @@ require 'rubygems'
 interpreters = [RubyInstaller::Ruby18, RubyInstaller::Ruby19]
 
 begin
-  gem 'rdoc', '~> 2.5.11'
+  gem 'rdoc'#, '~> 2.5.11'
   require 'rdoc/rdoc'
   gem 'rdoc_chm', '~> 2.4.2'
 rescue Gem::LoadError
