@@ -6,7 +6,7 @@ interpreters = [RubyInstaller::Ruby18, RubyInstaller::Ruby19]
 begin
   gem 'rdoc'
   require 'rdoc/rdoc'
-  gem 'rdoc_chm'
+  gem 'rdoc_chm', '~> 2.4.3'
 rescue Gem::LoadError
   if Rake.application.options.show_tasks
     puts "You need rdoc 2.5.11 and rdoc_chm 2.4.2 gems installed"
@@ -45,7 +45,7 @@ interpreters.each do |package|
 
   stdlib_files = ['./lib', './ext']
 
-  default_opts = ['--format=chm', '--encoding', 'UTF-8']
+  default_opts = ['--format=chm', '--debug', "--encoding=UTF-8"]
 
   # build file dependencies
   rdocs = [
@@ -142,14 +142,14 @@ interpreters.each do |package|
   end
 
   namespace version do
-    task :clobber_docs do
+    task :chm_clobber_docs do
       rm_rf target
     end
 
-    desc "build docs for #{version}"
-    task :docs => ['docs:htmlhelp', meta_chm.file]
+    desc "build chm docs for #{version}"
+    task :chm_docs => ['docs:htmlhelp', meta_chm.file]
 
-    desc "rebuild docs for #{version}"
-    task :redocs => [:clobber_docs, :docs]
+    desc "rebuild chm docs for #{version}"
+    task :chm_redocs => [:chm_clobber_docs, :chm_docs]
   end
 end
