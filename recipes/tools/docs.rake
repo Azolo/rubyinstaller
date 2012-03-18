@@ -4,9 +4,9 @@ require 'rubygems'
 interpreters = [RubyInstaller::Ruby18, RubyInstaller::Ruby19]
 
 begin
-  gem 'rdoc'#, '~> 2.5.11'
+  gem 'rdoc'
   require 'rdoc/rdoc'
-  gem 'rdoc_chm', '~> 2.4.2'
+  gem 'rdoc_chm'
 rescue Gem::LoadError
   if Rake.application.options.show_tasks
     puts "You need rdoc 2.5.11 and rdoc_chm 2.4.2 gems installed"
@@ -45,7 +45,7 @@ interpreters.each do |package|
 
   stdlib_files = ['./lib', './ext']
 
-  default_opts = ['--format=chm']
+  default_opts = ['--format=chm', '--encoding', 'UTF-8']
 
   # build file dependencies
   rdocs = [
