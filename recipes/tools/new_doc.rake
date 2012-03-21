@@ -21,7 +21,7 @@ interpreters.each do |package|
           desc "TEST"
           task doc.lib => [:prepare] do
             options = RDoc::Options.new
-            options.main_page = 'ruby_installer/README'
+            options.main_page = 'ruby_installer/README.txt'
             options.title = doc.title
             options.op_dir = doc.target
             options.exclude << doc.exclude if doc.exclude
