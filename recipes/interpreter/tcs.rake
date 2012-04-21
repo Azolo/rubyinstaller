@@ -78,5 +78,5 @@ unless ENV["NOTK"]
   task :tcs => ["dependencies:tk:install19"]
 end
 
-task :check19   => ['tcs:dependencies', 'interpreter:tcs:check']
-task :irb19     => ['tcs:dependencies', 'interpreter:tcs:irb']
+task :checktcs   => ['tcs:dependencies', 'interpreter:tcs:check']
+task :irbtcs     => ['tcs:dependencies', 'interpreter:tcs:irb']
