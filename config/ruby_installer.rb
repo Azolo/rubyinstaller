@@ -1,6 +1,7 @@
 require 'ostruct'
 
 module RubyInstaller
+  INTERPRETERS = []
   unless defined?(ROOT)
     # Root folder
     ROOT = File.expand_path(File.join(File.dirname(__FILE__), ".."))
@@ -15,8 +16,9 @@ module RubyInstaller
       :file => 'cacert.pem'
     )
 
-    Ruby18 = OpenStruct.new(
+    INTERPRETERS << Ruby18 = OpenStruct.new(
       :version => '1.8.7-p358',
+      :short_version => 'ruby18',
       :url => "http://ftp.ruby-lang.org/pub/ruby/1.8",
       :checkout => 'http://svn.ruby-lang.org/repos/ruby/branches/ruby_1_8_7',
       :checkout_target => 'downloads/ruby_1_8',
@@ -51,8 +53,9 @@ module RubyInstaller
       Ruby18.installer_guid = '{CE65B110-8786-47EA-A4A0-05742F29C221}'
     end
 
-    Ruby19 = OpenStruct.new(
+    INTERPRETERS << Ruby19 = OpenStruct.new(
       :version => "1.9.3-p125",
+      :short_version => 'ruby19',
       :url => "http://ftp.ruby-lang.org/pub/ruby/1.9",
       :checkout => 'http://svn.ruby-lang.org/repos/ruby/branches/ruby_1_9_3',
       :checkout_target => 'downloads/ruby_1_9',
